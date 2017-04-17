@@ -1,0 +1,48 @@
+<!-- Copyright
+You can reuse this code. Its totally free. This has made for tutorial purpose only at Larademy.com
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>How to Use Typeahead (Auto-Complete) with HTML - Larademy</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://twitter.github.io/typeahead.js/releases/latest/typeahead.bundle.js"></script>
+
+
+	<script>
+		$(document).ready(function(){
+
+			//list of the countries
+			var countries = ["Afghanistan", "Albania", "Bahamas", "Bahrain", "Cambodia", "Cameroon", "Denmark", "Djibouti", "East Timor", "Ecuador", "Falkland Islands (Malvinas)", "Faroe Islands", "Gabon", "Gambia", "Haiti", "Heard and Mc Donald Islands", "Iceland", "India", "Jamaica", "Japan", "Kenya", "Kiribati", "Lao People's Democratic Republic", "Latvia", "Macau", "Macedonia", "Namibia", "Nauru", "Oman", "Pakistan", "Palau", "Qatar", "Reunion", "Romania", "Saint Kitts and Nevis", "Saint Lucia", "Taiwan", "Tajikistan", "Uganda", "Ukraine", "Vanuatu", "Vatican City State", "Wallis and Futuna Islands", "Western Sahara", "Yemen", "Yugoslavia", "Zaire", "Zambia"];
+			
+
+			//instance of Typeahead
+			var countries_list = new Bloodhound({
+				datumTokenizer: Bloodhound.tokenizers.whitespace,
+				queryTokenizer: Bloodhound.tokenizers.whitespace,
+				local: countries
+			});
+			
+			$('.searchfield').typeahead(
+				{ minLength: 1 },
+				{ source: countries_list }
+			);
+
+		});  
+	</script>
+
+</head>
+<body>
+	
+	<center>
+		<h1> <a href="">How to Use Typeahead (Auto-Complete) with HTML - Larademy</a> </h1>
+		<p>This is a learning tutorial from <a href="http://larademy.com">Larademy</a>.</p>
+
+		<p>Search:</label> <input type="text" name="country" class="searchfield" /></p>
+
+	</center>
+	
+</body>
+</html>
